@@ -25,5 +25,5 @@ import "fmt"
 func main() {
 	// Knowing about the string type, modify
 	// the argument to fmt.Println to be a single string.
-	fmt.Println(hello world)
+	fmt.Println("hello world")
 }
