@@ -17,5 +17,5 @@ func main() {
 	// between variables they must be of the same type! Convert one of
 	// the variables in the Println so that the result of 1/3+2+3 is printed out.
 	// Don't add lines or change the lines above!
-	fmt.Println(oneThird + twoPlusThree)
+	fmt.Println(int(oneThird) + twoPlusThree)
 }

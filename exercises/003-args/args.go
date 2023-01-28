@@ -18,5 +18,5 @@ import "fmt"
 func main() {
 	// Knowing how to separate arguments in function calls fix
 	// the following line so that it prints "go 2 true"
-	fmt.Println("go" 2 true)
+	fmt.Println("go", 2, true)
 }

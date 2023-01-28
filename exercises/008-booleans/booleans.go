@@ -24,9 +24,9 @@ func main() {
 	b := false
 	// Fix the following line so that
 	// it prints out the result of a OR b.
-	fmt.Println(a + b)
+	fmt.Println(a || b)
 
 	// Fix the following line so that
 	// it prints out the result of a AND b.
-	fmt.Println(a & b)
+	fmt.Println(a && b)
 }
