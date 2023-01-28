@@ -99,21 +99,6 @@ type e struct {
 	name string
 }
 
-func parseExerciseDirName(name string) (e, error) {
-	if len(name) < 5 {
-		return e{}, errors.New("exercise name too short")
-	}
-	n, err := strconv.Atoi(name[0:3])
-	if err != nil {
-		return e{}, err
-	}
-	en := e{num: n, name: name[4:]}
-	if en.dirName() != name {
-		return e{}, fmt.Errorf("generated directory name %q does not match argument name %q", en.dirName(), name)
-	}
-	return en, nil
-}
-
 func (en e) dirName() string {
 	return fmt.Sprintf("%03d-%s", en.num, en.name)
 }
@@ -154,13 +139,29 @@ func parseDirExercises(dir string) ([]e, error) {
 	return found, nil
 }
 
+func parseExerciseDirName(name string) (e, error) {
+	if len(name) < 5 {
+		return e{}, errors.New("exercise name too short")
+	}
+	n, err := strconv.Atoi(name[0:3])
+	if err != nil {
+		return e{}, err
+	}
+	en := e{num: n, name: name[4:]}
+	if en.dirName() != name {
+		return e{}, fmt.Errorf("generated directory name %q does not match argument name %q", en.dirName(), name)
+	}
+	return en, nil
+}
+
 func usage(msg string) {
 	fmt.Fprintf(os.Stderr, "gopherling exercise numeration tool (gent).\n")
 	fmt.Fprintf(os.Stderr, "usage:\n\tgent <command> [argument]\n")
 	fmt.Fprintf(os.Stderr, "Supported commands:\n")
 	fmt.Fprintf(os.Stderr, "\tinsert [name of exercise directory]\n")
 	fmt.Fprintf(os.Stderr, "inserts an exercise directory and renames existing exercise numbers to avoid number collisions\n")
-	fmt.Fprintf(os.Stderr, "\trenames exercise numbers so that exercise numbers increase by 1\n")
+	fmt.Fprintf(os.Stderr, "\tcollapse\n")
+	fmt.Fprintf(os.Stderr, "renames all exercise numbers so that exercise numbers increase by 1\n")
 	if msg != "" {
 		fmt.Fprintf(os.Stderr, "%s\n", msg)
 	}

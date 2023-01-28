@@ -4,12 +4,12 @@
 // Problem:
 // In Go variables are declared with their type so that the compiler
 // can check correctness of function calls.
-// 
+//
 // The keyword `var` allows for declaring one or more variables
 // The following code declares a variable named `a`, of type `int`.
-// 
+//
 //  var a int
-// 
+//
 // One can then assign to the newly created value below the declaration as
 // many times as you'd like:
 //
@@ -36,6 +36,8 @@
 // In Go, variables that are declared without initialization are "zero-valued"
 // For example, strings will be the empty string "", numbers will be 0.
 //
+
+// I AM STILL GOING
 
 package main
 
